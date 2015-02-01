@@ -55,7 +55,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 mCustomScrollbar" id="leftpanel" data-mcs-theme="dark"><!-- zawartość ładowana dynamicznie --></div>
          <div class="col-md-9" id="content">
-         <div id="alertBox" class="alert alert-warning hide">
+         <div id="alertBox" class="alert alert-warning" style="display:none;">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
             <strong>Błąd!</strong> Musisz się zalogować
         </div>

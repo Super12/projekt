@@ -32,10 +32,16 @@ function loadContent( link )
 
 
 	$('.se-pre-con').fadeIn("fast");
-	$("#content").load( src + href , function() {
+	$("#content").load( src + href , function( response, status, xhr ) {
+  		if ( status == "error" ) {
+  			$('.se-pre-con').fadeOut("slow");
+
+  		} else {
+  		//Czekaj az załadują się obrazki
 		$("#content").waitForImages(true).done(function() {
 		    $('.se-pre-con').fadeOut("slow");
 		});
+		}
 
 	});
 	
@@ -47,7 +53,12 @@ function dodajFilm()
 {
 	// Jeśli nie zalogowany wyswietli error
 	if (!ZALOGOWANY)
+	{
+		// Wyswietlanie komunikatu że nie zalogowany
+		$('#alertBox').effect("highlight", 3000);
+		setTimeout(function(){$('#alertBox').fadeOut("slow")}, 5000);
 		return;
+	}
 	// Kod HTML formularza
 	// Można by było dodać adress do obrazka (teraz jest losowo pobierany przez PHP)
 	body = '<form><div class="form-group">'+
