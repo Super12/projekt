@@ -55,8 +55,15 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 mCustomScrollbar" id="leftpanel" data-mcs-theme="dark"><!-- zawartość ładowana dynamicznie --></div>
          <div class="col-md-9" id="content">
-         <?php include("/backend/filmy/wszystkie.php"); ?>
-         <!-- zawartośc ładowana dynamicznie -->
+         <div id="alertBox" class="alert alert-warning hide">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Błąd!</strong> Musisz się zalogować
+        </div>
+            <div id="content">
+
+             <?php include("/backend/filmy/wszystkie.php"); ?>
+             <!-- zawartośc ładowana dynamicznie -->
+         </div>
          </div>
     </div>
 

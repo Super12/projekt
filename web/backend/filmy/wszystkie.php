@@ -2,6 +2,12 @@
     // Pobierz polączenie z bazą danych
     require '/../funkcje/baza.php';
 
+    // dodawanie do zapytania sql
+
+    if ($_GET['sortuj'] == 'najlepsze')
+        $sqlSort = ' ORDER BY `ocena` DESC'; 
+    elseif ($_GET['sortuj'] == 'najpopularniejsze') 
+        $sqlSort = ' ORDER BY `ile_razy_kupiono` DESC';  
 ?>
 
 <!-- https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=movie&imgsz=large -->
@@ -18,7 +24,7 @@
             <div class="carousel-inner">
             <?php
             // Pobieramy pierwsze 3 obrazki do karuzeli
-                $results = $baza->get_results("SELECT * FROM filmy LIMIT 3");
+                $results = $baza->get_results("SELECT * FROM filmy".$sqlSort." LIMIT 3");
                 // iteruj po wszystkich filmach
                 foreach($results as $film) {?>
                     <div class="item <?php if ($film === reset($results)) echo 'active' ?>">
@@ -42,7 +48,9 @@
 
 <div class="row">
 <?php
-    $results = $baza->get_results("SELECT * FROM filmy");
+    // Pobierz filmy z bazy
+
+    $results = $baza->get_results("SELECT * FROM filmy".$sqlSort);
     // iteruj po wszystkich filmach
     foreach($results as $film) {
         

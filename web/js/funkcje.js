@@ -45,7 +45,9 @@ Funkcja wyświetlająca forme do dodania nowego filmu
 */
 function dodajFilm() 
 {
-
+	// Jeśli nie zalogowany wyswietli error
+	if (!ZALOGOWANY)
+		return;
 	// Kod HTML formularza
 	// Można by było dodać adress do obrazka (teraz jest losowo pobierany przez PHP)
 	body = '<form><div class="form-group">'+
