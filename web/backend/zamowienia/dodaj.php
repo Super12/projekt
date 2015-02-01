@@ -15,3 +15,6 @@ $sql = "INSERT INTO `zamowienia` ($columns) VALUES (\"$values\")";
 // Wyslij zapytanie tworzące
 
 $baza->query($sql);
+
+//Zaktualizuj ilosc razy zakupionych filmu
+$baza->query('update `filmy` set ile_razy_kupiono = ile_razy_kupiono+1 where id='.$_GET['film_id']);

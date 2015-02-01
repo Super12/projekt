@@ -29,7 +29,6 @@ if (!is_null($_SESSION["admin"]))
 
 	copy('http://lorempixel.com/800/300', '../../images/filmy/'.$nazwa.'.jpeg');
 
-
 	
 	// rozbraja nam zapytanie GET (kod znaleziony na intenecie)
 	$columns = implode(", ",array_keys($_GET));
