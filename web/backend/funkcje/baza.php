@@ -208,5 +208,5 @@ class wjdb {
 }
 //dane do bazy
 $baza = wjdb::instance();
-$baza->connect("localhost", "user", "user", "sklepik");
+$baza->connect("10.254.94.2", "s175155", "s175155", "sF8JxKbM");
 
