@@ -32,8 +32,12 @@ function loadContent( link )
 
 	$('.se-pre-con').fadeIn("fast");
 	$("#content").load( src + href , function() {
-		$('.se-pre-con').fadeOut("slow");
+		$("#content").waitForImages(true).done(function() {
+		    $('.se-pre-con').fadeOut("slow");
+		});
+
 	});
+	
 }
 /*
 Funkcja wyświetlająca forme do dodania nowego filmu
@@ -132,7 +136,7 @@ function loguj()
 
 function pokazPanel(login)
 {
-	$("#navbar center div").fadeOut("fast");
+	//$("#navbar center div").fadeOut("fast");
 	$("#navbar center div").html(
 		'<ul class="nav navbar-nav pull-right">'+
          '<li class="dropdown">'+
