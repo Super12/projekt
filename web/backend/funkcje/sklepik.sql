@@ -25,12 +25,11 @@
 
 CREATE TABLE IF NOT EXISTS `filmy` (
   `id` int(11) NOT NULL,
-  `nazwa` varchar(255) NOT NULL,
-  `opis` text NOT NULL,
+  `nazwa` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `opis` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `ocena` int(11) NOT NULL,
   `ile_razy_kupiono` int(11) NOT NULL,
-  `adres_do_obrazka` text NOT NULL,
-  `adres_do_duzego_obrazka` text NOT NULL
+  `adres_do_obrazka` text NOT NULL
 );
 
 -- --------------------------------------------------------

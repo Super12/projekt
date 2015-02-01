@@ -2,7 +2,8 @@
 
 // Adres do folderu z wszystkimi podstronami
 var src = "/backend/"
-
+// zmienna do odblokowywania funkcji administraora 
+var ZALOGOWANY = false;
 /*
 Funkcja ładująca górny pasek
 */
@@ -49,7 +50,7 @@ function dodajFilm()
 	// Można by było dodać adress do obrazka (teraz jest losowo pobierany przez PHP)
 	body = '<form><div class="form-group">'+
 	'Podaj tytuł filmu:'+
-	'<input name="tytul" type="text" class="form-control" required>'+
+	'<input name="nazwa" type="text" class="form-control" required>'+
 	'Opis filmu:'+
 	'<textarea name="opis" class="form-control" placeholder="Podaj opis filmu" required></textarea><hr>'+
 	'Cena:'+
@@ -79,16 +80,13 @@ function dodajFilm()
                 	var dane = dialogRef.getModalBody().find('form').serialize();
                 	
                 	//Wysyłamy zapytanie POST w celu dodania nowego filmu
-                	$.post( "test.php", dane )
+                	$.get( src+ "/filmy/dodaj.php", dane )
 					  .done(function( data ) {
-					    alert( "Data Loaded: " + data );
+					    dialogRef.close();
 					  });
 
 
-                    //dialogRef.getModalBody().html('Dialog closes in 5 seconds.');
-                    setTimeout(function(){
-                        dialogRef.close();
-                    }, 89000);
+       
                 }
             }, {
                 label: 'Anuluj',
@@ -104,6 +102,7 @@ function loguj()
 {
 	if (!sprawdzForme($("#loginForm")))
 		return;
+
 	$("#loginForm a").addClass("disabled");
 	$("#loginForm a span").removeClass("hidden");
 	//Łączymy się do serwera w celu sprawdzenia danych
@@ -118,7 +117,9 @@ function loguj()
 
 		if (data.ok == 1)
 		{
-			setTimeout(function(){pokazPanel($("#loginForm input[name='login']"))}, 550);
+			setTimeout(function(){pokazPanel($("#loginForm input[name='login']").val())}, 550);
+			// ustaw zmienną zalogowany na true
+			ZALOGOWANY = true;
 		} else 
 		{
 			//Wyświetl błedy
@@ -132,6 +133,7 @@ function loguj()
 
 }
 
+
 //Zmienia logowanie w panel użytkownika
 
 function pokazPanel(login)
@@ -141,7 +143,7 @@ function pokazPanel(login)
 		'<ul class="nav navbar-nav pull-right">'+
          '<li class="dropdown">'+
             '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
-            'Witaj, '+login.val()+'<b class="caret"></b></a>'+
+            'Witaj, '+login+'<b class="caret"></b></a>'+
             '<ul class="dropdown-menu">'+
                '<li><a href="#">Profil</a></li>'+
                '<li><a href="#">Zmien hasło</a></li>'+
@@ -149,12 +151,24 @@ function pokazPanel(login)
                '<li class="divider"></li>'+
                '<li><a href="#">Skasuj konto</a></li>'+
                '<li class="divider"></li>'+
-               '<li><a href="#">Wyloguj</a></li>'+
+               '<li><a href="'+src+'/wyloguj.php">Wyloguj</a></li>'+
             '</ul>'+
          '</li>'+
       '</ul>');
 }
 
+//sprawdza czy zalogowany
+function sprawdzCzyZalogowany()
+{
+	$.getJSON( src + "czyZalogowany.php", $("#loginForm").serialize(), function( data ) {
+		if (data.zalogowany == 1)
+		{
+			ZALOGOWANY = true;
+			pokazPanel(data.admin);
+		}
+		});
+		
+}
 
 
 //Wyswietla błędy formy

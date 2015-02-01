@@ -4,7 +4,7 @@
 
     $results = $baza->get_row("SELECT * FROM filmy");
 
-    var_dump($results);
+    //var_dump($results);
 
 ?>
 

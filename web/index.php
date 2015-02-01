@@ -93,7 +93,7 @@
         //ładuj pasek i menu
         loadNavbar();
         loadLeftpanel();
-
+        sprawdzCzyZalogowany();
         // BootstrapDialog.alert('I want banana!');
         $('body').perfectScrollbar();
     </script>

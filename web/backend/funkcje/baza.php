@@ -206,7 +206,7 @@ class wjdb {
      */
     public function __destruct() {}
 }
-
+//dane do bazy
 $baza = wjdb::instance();
 $baza->connect("localhost", "user", "user", "sklepik");
 
