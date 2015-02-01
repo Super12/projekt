@@ -57,7 +57,7 @@
          <div class="col-md-9">
          <div id="alertBox" class="alert alert-warning" style="display:none;">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <strong>Błąd!</strong> Musisz się zalogować
+            <strong>Błąd!</strong> Prawdopodobnie nie jesteś zalogowany lub funkcjonalność nei jest jeszcze gotowa
         </div>
             <div id="content">
 
@@ -103,6 +103,7 @@
         sprawdzCzyZalogowany();
         // BootstrapDialog.alert('I want banana!');
         $('body').perfectScrollbar();
+
     </script>
 </body>
 

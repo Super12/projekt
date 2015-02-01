@@ -57,7 +57,22 @@
 ?>
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
-            <div class="ratio" style="background-image:url('<?=$film->adres_do_obrazka?>')"></div>
+            <div class="ratio" style="background-image:url('<?=$film->adres_do_obrazka?>')">
+            <div class="caption2 col-md-12">
+            <div class="col-md-4">
+            <a href="javascript:kup(<?=$film->id?>)" class="btn btn-success btn-xs">
+            <i class="fa fa-shopping-cart"></i> Zakup </a> 
+            </div><div class="col-md-4">
+            <a href="javascript:pokaz(<?=$film->id?>)" rel="tooltip" class="btn btn-info btn-xs">
+            <i class="fa fa-eye"></i>Pokaz</a></p>
+            </div>
+            <div class="pull-right col-md-4">
+            <a href="javascript:usun(<?=$film->id?>)" rel="tooltip" class="btn btn-danger btn-xs pull-right">
+            <i class="fa fa-trash-o"></i>Usuń</a></div>
+            
+            </div>
+
+            </div>
           
             <div class="caption">
                 <h4 class="pull-right">$<?=$film->cena?></h4>
@@ -83,3 +98,20 @@
 ?>
 
 </div>
+
+<script>
+        $(document).ready(function(){
+         
+            $("[rel='tooltip']").tooltip(); 
+         
+            $('.thumbnail').hover(
+                function(){
+                    $(this).find('.caption2').slideDown(250); //.fadeIn(250)
+                },
+                function(){
+                    $(this).find('.caption2').slideUp(250); //.fadeOut(205)
+                }
+            );  
+         
+        }); 
+    </script>

@@ -12,7 +12,7 @@
                     <tr>
                         <td>
                             <i class="fa fa-film"></i>
-                            <a href="#/filmy/wszystkie.php">Wszystkie filmy</a>
+                            <a id="wszystkie" href="#/filmy/wszystkie.php">Wszystkie filmy</a>
                         </td>
                     </tr>
                     <tr>
@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                         <td><i class="fa fa-list-ol"></i>
-                            <a id="wszystkie" href="#/filmy/zamowienia.php?sortuj=ostatnie">Ostatnie</a> <span class="label label-success">$ 320</span>
+                            <a href="#/filmy/zamowienia.php?sortuj=ostatnie">Ostatnie</a> <span class="label label-success">$ 320</span>
                         </td>
                     </tr>
 
@@ -115,17 +115,17 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sprzedaż</a>
+                            <span class="glyphicon glyphicon-usd"></span><a href="#/filmy/ostatniokupione.php">Sprzedaż</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Odwiedzin</a>
+                            <span class="glyphicon glyphicon-user"></span><a href="#/filmy/ostatniokupione.php">Odwiedzin</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <i class="fa fa-file-text-o"></i></span><a href="http://www.jquery2dotnet.com">Logi</a>
+                            <i class="fa fa-file-text-o"></i></span><a href="#/filmy/ostatniokupione.php">Logi</a>
                         </td>
                     </tr>
 
@@ -135,6 +135,6 @@
     </div>
 </div>
 <script>
-// Podepnij wszystkie linki z lewgo menu, żeby ładowały zawartość
+// Podepnij wszystkie linki z lewego menu, żeby ładowały zawartość
         $("#leftpanel table a").click(function(){loadContent(this);});
 </script>

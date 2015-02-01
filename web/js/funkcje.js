@@ -63,7 +63,6 @@ function dodajFilm()
 		return;
 	}
 	// Kod HTML formularza
-	// Można by było dodać adress do obrazka (teraz jest losowo pobierany przez PHP)
 	body = '<form><div class="form-group">'+
 	'Podaj tytuł filmu:'+
 	'<input name="nazwa" type="text" class="form-control" required>'+
@@ -189,7 +188,67 @@ function sprawdzCzyZalogowany()
 		
 }
 
+/*
+Funkcja generuje okno modalna zakupu
+*/
+// id filmu
+function kup(id) 
+{
+	// Kod HTML formularza
+	body = '<form><div class="form-group">'+
+	'<input type="hidden" name="film_id" value="'+id+'">'+
+	'Podaj swoje imie i nazwisko:'+
+	'<input name="imie_nazwisko" type="text" class="form-control" required>'+
+	'Podaj swój adres:'+
+	'<textarea class="form-control" placeholder="Podaj opis filmu" required></textarea><hr>'+
+	'</div></form>';
 
+	  BootstrapDialog.show({
+	  		title: 'Potwierdź zakup',
+            message: body,
+            buttons: [{
+                icon: 'fa fa-shopping-cart',
+                label: 'Kup film',
+                cssClass: 'btn-primary',
+                autospin: true,
+                action: function(dialogRef){
+                    dialogRef.enableButtons(false);
+                    dialogRef.setClosable(false);
+                	// Pobieramy uzupełnione elementy formy
+                	var dane = dialogRef.getModalBody().find('form').serialize();
+                	
+                	//Wysyłamy zapytanie POST w celu dodania nowego filmu
+                	$.get( src+ "/zamowienia/dodaj.php", dane )
+					  .done(function( data ) {
+					  	// zamknij okno po załadowaniu
+					    dialogRef.close();
+					    // przejdź do zakupionych
+					    $("#wszystkie").click();
+					  });
+
+
+       
+                }
+            }, {
+                label: 'Anuluj',
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+        });
+        
+}
+// funkcja w budowie
+function pokaz(id)
+{
+	$('#alertBox').effect("highlight", 3000);
+	setTimeout(function(){$('#alertBox').fadeOut("slow")}, 5000);
+}
+//funkcjonalnosc w budowie
+function usun(id){
+	$('#alertBox').effect("highlight", 3000);
+	setTimeout(function(){$('#alertBox').fadeOut("slow")}, 5000);
+}
 //Wyswietla błędy formy
 function sprawdzForme($form){
   if (!$form[0].checkValidity()) {
