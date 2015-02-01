@@ -1,6 +1,6 @@
 <?php
     // Pobierz polączenie z bazą danych
-    require '/../funkcje/baza.php';
+    require '../funkcje/baza.php';
 
     // tworzenei tabeli
 

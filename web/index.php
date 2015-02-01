@@ -61,7 +61,9 @@
         </div>
             <div id="content">
 
-             <?php include("/backend/filmy/wszystkie.php"); ?>
+             <?php 
+             include(__DIR__."/backend/filmy/wszystkie.php"); 
+             ?>
              <!-- zawartośc ładowana dynamicznie -->
          </div>
          </div>

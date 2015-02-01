@@ -1,7 +1,7 @@
 <?php
 //Startujemy sesje
 session_start();
-    require '/../funkcje/baza.php';
+    require '../funkcje/baza.php';
 
 //generowanie losowwej nazwy zdjecia
 function random_string($length) {
@@ -24,7 +24,7 @@ if (!is_null($_SESSION["admin"]))
 
 	// GENERUJEMY ZDJĘCIE
 	$nazwa = random_string(20);
-	$link = "http://$_SERVER[HTTP_HOST]/images/filmy/".$nazwa.".jpeg";
+	$link = "http://$_SERVER[HTTP_HOST]/~s175155/images/filmy/".$nazwa.".jpeg";
 	//pobieranie zdjęcia
 
 	copy('http://lorempixel.com/800/300', '../../images/filmy/'.$nazwa.'.jpeg');
@@ -36,7 +36,7 @@ if (!is_null($_SESSION["admin"]))
 	$values  = implode('", "', $escaped_values);
 
 	$sql = "INSERT INTO `filmy` ($columns, `adres_do_obrazka`) VALUES (\"$values\", '$link')";
-
+	echo $sql;
 	// Wyslij zapytanie tworzące
 
 	$baza->query($sql);

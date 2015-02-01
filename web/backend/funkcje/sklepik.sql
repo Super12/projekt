@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `filmy` (
   `nazwa` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `opis` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `ocena` int(11) NOT NULL,
+  `cena` int(11) NOT NULL,
   `ile_razy_kupiono` int(11) NOT NULL,
   `adres_do_obrazka` text NOT NULL
 );
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `zamowienia` (
   `id` int(11) NOT NULL,
   `film_id` int(11) NOT NULL,
   `imie_nazwisko` varchar(255) NOT NULL,
-  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 --
@@ -75,6 +76,7 @@ ALTER TABLE `filmy`
 --
 ALTER TABLE `zamowienia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

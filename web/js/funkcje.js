@@ -1,7 +1,7 @@
 
 
 // Adres do folderu z wszystkimi podstronami
-var src = "/backend/"
+var src = "/~s175155/backend/"
 // zmienna do odblokowywania funkcji administraora 
 var ZALOGOWANY = false;
 /*
@@ -35,7 +35,7 @@ function loadContent( link )
 	$("#content").load( src + href , function( response, status, xhr ) {
   		if ( status == "error" ) {
   			// jeśli strona nie istenieje
-  			$("#content").html("<div class='row'><img src='/images/budowa.gif' style='width:100%'/></div>");
+  			$("#content").html("<div class='row'><img src='/~s175155/images/budowa.gif' style='width:100%'/></div>");
   			$("#content").waitForImages(true).done(function() {
   				$('.se-pre-con').fadeOut("slow");});
 
@@ -95,7 +95,7 @@ function dodajFilm()
                 	var dane = dialogRef.getModalBody().find('form').serialize();
                 	
                 	//Wysyłamy zapytanie POST w celu dodania nowego filmu
-                	$.get( src+ "/filmy/dodaj.php", dane )
+                	$.get( src+ "filmy/dodaj.php", dane )
 					  .done(function( data ) {
 					  	// zamknij okno po załadowaniu
 					    dialogRef.close();
@@ -218,7 +218,7 @@ function kup(id)
                 	var dane = dialogRef.getModalBody().find('form').serialize();
                 	
                 	//Wysyłamy zapytanie POST w celu dodania nowego filmu
-                	$.get( src+ "/zamowienia/dodaj.php", dane )
+                	$.get( src+ "zamowienia/dodaj.php", dane )
 					  .done(function( data ) {
 					  	// zamknij okno po załadowaniu
 					    dialogRef.close();

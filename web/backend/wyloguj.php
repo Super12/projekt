@@ -13,5 +13,5 @@ if (isset($_COOKIE[session_name()])) {
 
 // Na koniec zniszcz sesję
 session_destroy();
-header('Location: /');
+header('Location: /~s175155/');
 

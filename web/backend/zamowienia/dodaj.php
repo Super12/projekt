@@ -1,7 +1,7 @@
 <?php
 //Startujemy sesje
 session_start();
-    require '/../funkcje/baza.php';
+    require '../funkcje/baza.php';
 
 
 

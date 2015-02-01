@@ -1,4 +1,5 @@
 <?php
+
 // SKRYPT POBRANY Z INTERNETU, służy do łączenia się z bazą danych bez tworzenia milona obiektów
 /**
  * PHP5 MySQL Database Class implementing the Singleton Design Pattern
@@ -208,5 +209,5 @@ class wjdb {
 }
 //dane do bazy
 $baza = wjdb::instance();
-$baza->connect("10.254.94.2", "s175155", "s175155", "sF8JxKbM");
+$baza->connect("10.254.94.2", "s175155", "sF8JxKbM", "s175155");
 

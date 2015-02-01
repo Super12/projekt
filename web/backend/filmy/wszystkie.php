@@ -1,7 +1,9 @@
 <?php
     // Pobierz polączenie z bazą danych
-    require '/../funkcje/baza.php';
-
+    // prblem z includami, rozwiązany w ten sposób
+    if ($_GET['js'] == '1')
+        require '../funkcje/baza.php'; else
+        require 'backend/funkcje/baza.php';
     // dodawanie do zapytania sql
 
     if ($_GET['sortuj'] == 'najlepsze')
