@@ -12,7 +12,7 @@
                     <tr>
                         <td>
                             <i class="fa fa-film"></i>
-                            <a href="#/filmy/wszystkie.html">Wszystkie filmy</a>
+                            <a href="#/filmy/wszystkie.php">Wszystkie filmy</a>
                         </td>
                     </tr>
                     <tr>
@@ -30,7 +30,7 @@
                     <tr>
                         <td>
                             <i class="fa fa-money "></i>
-                            <a href="#/filmy/wszystkie.php?sortuj=ostatnio">Ostatnio kupione</a>
+                            <a href="#/filmy/ostatniokupione.php">Ostatnio kupione</a>
                             <span class="badge">0</span>
                         </td>
                     </tr>
@@ -49,26 +49,27 @@
             <div class="panel-body">
                 <table class="table">
                     <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Ostatnie</a> <span class="label label-success">$ 320</span>
+                        <td><i class="fa fa-th-list"></i>
+                            <a  href="#/filmy/zamowienia.php">Moje zamowienia</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-list-ol"></i>
+                            <a id="wszystkie" href="#/filmy/zamowienia.php?sortuj=ostatnie">Ostatnie</a> <span class="label label-success">$ 320</span>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Faktury</a>
+                        <td><i class="fa fa-credit-card"></i>
+                            <a href="#/filmy/faktura.php">Faktury</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Płatności</a>
+                        <td><i class="fa fa-paypal"></i>
+                            <a href="#/filmy/platnosc.php">Płatności</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Tex</a>
-                        </td>
-                    </tr>
+    
                 </table>
             </div>
         </div>
@@ -84,23 +85,18 @@
             <div class="panel-body">
                 <table class="table">
                     <tr>
-                        <td>
+                        <td><i class="fa fa-plus"></i>
                             <a href="javascript:dodajFilm()">Dodaj nowy film</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Przeglądaj zamówienia</a> <span class="label label-info">5</span>
+                        <td><span class="glyphicon glyphicon-shopping-cart"></span>
+                            <a href="#/filmy/zamowienia.php?wszystkie=1">Przeglądaj zamówienia</a> <span class="label label-info">5</span>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="http://www.jquery2dotnet.com">Modyfikuj</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Przegladaj wszystkie</a>
+                        <td><i class="fa fa-pencil"></i>
+                            <a href="#/filmy/modyfiku.php">Modyfikuj</a>
                         </td>
                     </tr>
                 </table>

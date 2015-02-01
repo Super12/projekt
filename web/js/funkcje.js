@@ -34,7 +34,10 @@ function loadContent( link )
 	$('.se-pre-con').fadeIn("fast");
 	$("#content").load( src + href , function( response, status, xhr ) {
   		if ( status == "error" ) {
-  			$('.se-pre-con').fadeOut("slow");
+  			// jeśli strona nie istenieje
+  			$("#content").html("<div class='row'><img src='/images/budowa.gif' style='width:100%'/></div>");
+  			$("#content").waitForImages(true).done(function() {
+  				$('.se-pre-con').fadeOut("slow");});
 
   		} else {
   		//Czekaj az załadują się obrazki
@@ -95,7 +98,10 @@ function dodajFilm()
                 	//Wysyłamy zapytanie POST w celu dodania nowego filmu
                 	$.get( src+ "/filmy/dodaj.php", dane )
 					  .done(function( data ) {
+					  	// zamknij okno po załadowaniu
 					    dialogRef.close();
+					    // odśwież zawartośc strony
+					    $("#wszystkie").click();
 					  });
 
 
