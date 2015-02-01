@@ -21,19 +21,27 @@ function random_string($length) {
 // jeśli nie jesteś zalogowany jako admin to nic nie doda
 if (!is_null($_SESSION["admin"]))
 {
-	// robrazja nam zapytanie GET (kod znaleziony na intenecie)
+
+	// GENERUJEMY ZDJĘCIE
+	$nazwa = random_string(20);
+	$link = "http://$_SERVER[HTTP_HOST]/images/filmy/".$nazwa.".jpeg";
+	//pobieranie zdjęcia
+
+	copy('http://lorempixel.com/800/300', '../../images/filmy/'.$nazwa.'.jpeg');
+
+
+	
+	// rozbraja nam zapytanie GET (kod znaleziony na intenecie)
 	$columns = implode(", ",array_keys($_GET));
 	$escaped_values = array_values($_GET);
 	$values  = implode('", "', $escaped_values);
 
-	$sql = "INSERT INTO `filmy` ($columns) VALUES (\"$values\")";
+	$sql = "INSERT INTO `filmy` ($columns, `adres_do_obrazka`) VALUES (\"$values\", '$link')";
 
-	//echo $sql;
 	// Wyslij zapytanie tworzące
-	echo random_striny(20);
-	copy('http://lorempixel.com/800/300', '../../images/filmy/file.jpeg');
-	//$baza->query($sql);
-}{
+
+	$baza->query($sql);
+} else {
 
 	echo "czego tu szukasz";
 }
