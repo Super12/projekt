@@ -35,7 +35,9 @@ function loadContent( link )
 		$('.se-pre-con').fadeOut("slow");
 	});
 }
-
+/*
+Funkcja wyświetlająca forme do dodania nowego filmu
+*/
 function dodajFilm() 
 {
 
@@ -82,7 +84,7 @@ function dodajFilm()
                     //dialogRef.getModalBody().html('Dialog closes in 5 seconds.');
                     setTimeout(function(){
                         dialogRef.close();
-                    }, 5000);
+                    }, 89000);
                 }
             }, {
                 label: 'Anuluj',
@@ -92,4 +94,46 @@ function dodajFilm()
             }]
         });
         
+}
+
+function loguj()
+{
+	if (!sprawdzForme($("#loginForm")))
+		return;
+	$("#loginForm a").addClass("disabled");
+	$("#loginForm a span").removeClass("hidden");
+	//Łączymy się do serwera w celu sprawdzenia danych
+	$.getJSON( src + "users.php", $("#loginForm").serialize(), function( data ) {
+		
+		//Dla efektu odblokuj przycisk z opóźnieniem
+
+
+		setTimeout(function(){
+			$("#loginForm a span").addClass("hidden")
+			$("#loginForm a").removeClass("disabled");}, 500);
+
+		if (data.ok == 1)
+		{
+
+		} else 
+		{
+			//Wyświetl błedy
+			$('#loginForm input[name="pass"]').each(function() {this.setCustomValidity('Błędny login lub hasło');});
+			sprawdzForme($("#loginForm"));
+		}
+
+			
+		
+	  });
+
+
+}
+
+//Wyswietla błędy formy
+function sprawdzForme($form){
+  if (!$form[0].checkValidity()) {
+        $form.find(':submit').click();
+        return false;
+  }
+  return true;
 }
