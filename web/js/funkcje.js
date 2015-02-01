@@ -114,20 +114,44 @@ function loguj()
 
 		if (data.ok == 1)
 		{
-
+			setTimeout(function(){pokazPanel($("#loginForm input[name='login']"))}, 550);
 		} else 
 		{
 			//Wyświetl błedy
 			$('#loginForm input[name="pass"]').each(function() {this.setCustomValidity('Błędny login lub hasło');});
 			sprawdzForme($("#loginForm"));
 		}
-
 			
 		
 	  });
 
 
 }
+
+//Zmienia logowanie w panel użytkownika
+
+function pokazPanel(login)
+{
+	$("#navbar center div").fadeOut("fast");
+	$("#navbar center div").html(
+		'<ul class="nav navbar-nav pull-right">'+
+         '<li class="dropdown">'+
+            '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'+
+            'Witaj, '+login.val()+'<b class="caret"></b></a>'+
+            '<ul class="dropdown-menu">'+
+               '<li><a href="#">Profil</a></li>'+
+               '<li><a href="#">Zmien hasło</a></li>'+
+               '<li><a href="#">Skzynka</a></li>'+
+               '<li class="divider"></li>'+
+               '<li><a href="#">Skasuj konto</a></li>'+
+               '<li class="divider"></li>'+
+               '<li><a href="#">Wyloguj</a></li>'+
+            '</ul>'+
+         '</li>'+
+      '</ul>');
+}
+
+
 
 //Wyswietla błędy formy
 function sprawdzForme($form){
