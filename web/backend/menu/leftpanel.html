@@ -1,0 +1,144 @@
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                </span>Filmy</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <i class="fa fa-film"></i>
+                            <a href="#/filmy/wszystkie.html">Wszystkie filmy</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa fa-sort-amount-desc"></i>
+                            <a href="#/filmy/wszystkie.php?sortuj=popularne">Najpopularniejsze</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                             <i class="fa fa-star"></i>
+                            <a href="#/filmy/wszystkie.php?sortuj=najlepsze">Najwyżej ocenione</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa fa-money "></i>
+                            <a href="#/filmy/wszystkie.php?sortuj=ostatnio">Ostatnio kupione</a>
+                            <span class="badge">0</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-shopping-cart">
+                </span>Zamówienia</a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Ostatnie</a> <span class="label label-success">$ 320</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Faktury</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Płatności</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Tex</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                </span>Administracja</a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <a href="javascript:dodajFilm()">Dodaj nowy film</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Przeglądaj zamówienia</a> <span class="label label-info">5</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.jquery2dotnet.com">Modyfikuj</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Przegladaj wszystkie</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                </span>Podsumowanie</a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sprzedaż</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Odwiedzin</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa fa-file-text-o"></i></span><a href="http://www.jquery2dotnet.com">Logi</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// Podepnij wszystkie linki z lewgo menu, żeby ładowały zawartość
+        $("#leftpanel table a").click(function(){loadContent(this);});
+</script>
